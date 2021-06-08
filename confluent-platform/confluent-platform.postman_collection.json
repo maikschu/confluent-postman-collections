@@ -1,0 +1,1965 @@
+{
+	"info": {
+		"_postman_id": "a79c7519-a80c-4087-917c-66f38212e159",
+		"name": "Confluent Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REST Proxy API",
+			"item": [
+				{
+					"name": "v2",
+					"item": [
+						{
+							"name": "Brokers - List",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/brokers",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"brokers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - List",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Describe",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{cp-topic-name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{cp-topic-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Partitions",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{cp-topic-name}}/partitions",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{cp-topic-name}}",
+										"partitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Produce JSON messages",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.json.v2+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"records\": [\r\n        {\r\n            \"key\": \"alice\",\r\n            \"value\": {\r\n                \"count\": 0\r\n            }\r\n        },\r\n        {\r\n            \"key\": \"somekey\",\r\n            \"value\": {\r\n                \"foo\": \"bar\"\r\n            }\r\n        },\r\n        {\r\n            \"value\": [\r\n                \"foo\",\r\n                \"bar\"\r\n            ],\r\n            \"partition\": 0\r\n        },\r\n        {\r\n            \"value\": 53.5\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{cp-topic-name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{cp-topic-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Produce Binary messages",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.binary.v2+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"records\": [\r\n    {\r\n      \"key\": \"a2V5\",\r\n      \"value\": \"Y29uZmx1ZW50\"\r\n    },\r\n    {\r\n      \"value\": \"a2Fma2E=\",\r\n      \"partition\": 0\r\n    },\r\n    {\r\n      \"value\": \"bG9ncw==\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{CP-Topic-Name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{CP-Topic-Name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Produce AVRO messages",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.avro.v2+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"value_schema\": \"{\\\"name\\\":\\\"int\\\",\\\"type\\\": \\\"int\\\"}\",\r\n  \"records\": [\r\n    {\r\n      \"value\": 12\r\n    },\r\n    {\r\n      \"value\": 24,\r\n      \"partition\": 0\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{CP-Topic-Name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{CP-Topic-Name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Produce AVRO messages Partition 0",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.avro.v2+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"value_schema\": \"{\\\"name\\\":\\\"int\\\",\\\"type\\\": \\\"int\\\"}\",\r\n  \"records\": [\r\n    {\r\n      \"value\": 25\r\n    },\r\n    {\r\n      \"value\": 26\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{CP-Topic-Name}}/partitions/0",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{CP-Topic-Name}}",
+										"partitions",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Get offset summary by partition",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"content-type": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json, application/vnd.kafka+json, application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/topics/{{CP-Topic-Name}}/partitions/0/offsets",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"topics",
+										"{{CP-Topic-Name}}",
+										"partitions",
+										"0",
+										"offsets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consumer - Create",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.json.v2+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"my_consumer\",\r\n  \"format\": \"json\",\r\n  \"auto.offset.reset\": \"earliest\",\r\n  \"auto.commit.enable\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/consumers/testgroup",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"consumers",
+										"testgroup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consumer - Subscribe to Topic",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.v2+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"topics\": [\r\n        \"{{CP-Topic-Name}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/consumers/testgroup/instances/my_consumer/subscription",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"consumers",
+										"testgroup",
+										"instances",
+										"my_consumer",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consumer - Subscribtions",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.v2+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/consumers/testgroup/instances/my_consumer/subscription",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"consumers",
+										"testgroup",
+										"instances",
+										"my_consumer",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consumer - Read Topic JSON",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true
+								},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.kafka.json.v2+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/consumers/testgroup/instances/my_consumer/records",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"consumers",
+										"testgroup",
+										"instances",
+										"my_consumer",
+										"records"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consumer - Delete",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.kafka.json.v2+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"my_consumer\",\r\n  \"format\": \"json\",\r\n  \"auto.offset.reset\": \"earliest\",\r\n  \"auto.commit.enable\": \"false\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v2}}/consumers/testgroup/instances/my_consumer",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v2}}",
+									"path": [
+										"consumers",
+										"testgroup",
+										"instances",
+										"my_consumer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "v3",
+					"item": [
+						{
+							"name": "Clusters - Get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clusters - Describe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clusters - Brokers Config",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/broker-configs",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"broker-configs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clusters - ACLs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/acls",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"acls"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clusters - Consumer Groups",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/consumer-groups",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"consumer-groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Brokers - List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/brokers/",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"brokers",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Brokers - Get Broker ID 0",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/brokers/{{broker-id}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"brokers",
+										"{{broker-id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Create",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"topic_name\": \"{{cp-topic-name}}\"}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Describe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics/{{cp-topic-name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics",
+										"{{cp-topic-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Config",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics/{{cp-topic-name}}/configs",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics",
+										"{{cp-topic-name}}",
+										"configs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Partitions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics/{{cp-topic-name}}/partitions",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics",
+										"{{cp-topic-name}}",
+										"partitions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Topics - Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics/{{cp-topic-name}}",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics",
+										"{{cp-topic-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replica Reassignments - List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/topics/-/partitions/-/reassignment",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"topics",
+										"-",
+										"partitions",
+										"-",
+										"reassignment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Replicas by Broker",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-v3}}/kafka/v3/clusters/{{cp-cluster-id}}/brokers/{{broker-id}}/partition-replicas",
+									"protocol": "{{cp-protocol}}",
+									"host": [
+										"{{cp-host}}"
+									],
+									"port": "{{cp-port-v3}}",
+									"path": [
+										"kafka",
+										"v3",
+										"clusters",
+										"{{cp-cluster-id}}",
+										"brokers",
+										"{{broker-id}}",
+										"partition-replicas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schema Registry",
+			"item": [
+				{
+					"name": "List all Subjects",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/subjects",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mode",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json, application/vnd.schemaregistry+json, application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/mode",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"mode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get top level config",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json, application/vnd.schemaregistry+json, application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/config",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Schema (register new version of a schema under given subject)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"schema\": \"{\\\"type\\\": \\\"string\\\"}\"}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/subjects/{{schema-subject}}/versions",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"subjects",
+								"{{schema-subject}}",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all versions of schema registered under given subject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/subjects/{{schema-subject}}/",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"subjects",
+								"{{schema-subject}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test compatibility of schema with latest schema by given subject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"schema\": \"{\\\"type\\\": \\\"string\\\"}\"}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/compatibility/subjects/{{schema-subject}}/versions/latest",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"compatibility",
+								"subjects",
+								"{{schema-subject}}",
+								"versions",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update compatibility requirements under given subject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"compatibility\": \"BACKWARD\"}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/config/{{schema-subject}}",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"config",
+								"{{schema-subject}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Schemas",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/schemas",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"schemas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest registered schema by given subject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/subjects/{{schema-subject}}/versions/latest",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"subjects",
+								"{{schema-subject}}",
+								"versions",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Schemas Types",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/schemas/types",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"schemas",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get global unique Schema ID 1",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/schemas/ids/1",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"schemas",
+								"ids",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get global unique Schema ID 1 Versions",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.schemaregistry.v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-sr}}/schemas/ids/1/versions",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-sr}}",
+							"path": [
+								"schemas",
+								"ids",
+								"1",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Connect",
+			"item": [
+				{
+					"name": "Connect Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Create File Stream Sink Connector",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{connector-name}}\",\r\n    \"config\": {\r\n        \"connector.class\": \"org.apache.kafka.connect.file.FileStreamSinkConnector\",\r\n        \"topics\": \"{{cp-topic-name}}\",\r\n        \"value.converter\": \"org.apache.kafka.connect.json.JsonConverter\",\r\n        \"value.converter.schemas.enable\": false,\r\n        \"key.converter\": \"org.apache.kafka.connect.json.JsonConverter\",\r\n        \"key.converter.schemas.enable\": false,\r\n        \"file\": \"/home/appuser/cp_file_sink_01.txt\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Create Datagen Connector",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{connector-datagen-name}}\",\r\n  \"config\": {\r\n    \"connector.class\": \"io.confluent.kafka.connect.datagen.DatagenConnector\",\r\n    \"tasks.max\": \"1\",\r\n    \"key.converter\": \"org.apache.kafka.connect.storage.StringConverter\",\r\n    \"value.converter\": \"org.apache.kafka.connect.json.JsonConverter\",\r\n    \"value.converter.schemas.enable\": \"false\",\r\n    \"errors.log.enable\": \"true\",\r\n    \"errors.log.include.messages\": \"true\",\r\n    \"kafka.topic\": \"{{connector-datagen-topic-name}}\",\r\n    \"max.interval\": \"1000\",\r\n    \"quickstart\": \"users\"\r\n  }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/status",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/config",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/tasks",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Task 0 Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/tasks/0/status",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"tasks",
+								"0",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Task 0 Restart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/tasks/0/restart",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"tasks",
+								"0",
+								"restart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connectors - Restart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors/{{connector-name}}/restart",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors",
+								"{{connector-name}}",
+								"restart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connector Plugins - List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connector-plugins",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connector-plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connector Plugins - Validate Config",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"connector.class\": \"org.apache.kafka.connect.file.FileStreamSinkConnector\",\r\n    \"tasks.max\": \"1\",\r\n    \"topics\": \"{{cp-topic-name}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connector-plugins/FileStreamSinkConnector/config/validate",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connector-plugins",
+								"FileStreamSinkConnector",
+								"config",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add JDBC Connector",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Postgresql\",\r\n    \"config\": {\r\n        \"connector.class\": \"io.confluent.connect.jdbc.JdbcSourceConnector\",\r\n        \"tasks.max\": \"1\",\r\n\t\t\"errors.log.enable\": \"true\",\r\n\t\t\"connection.url\": \"jdbc:postgresql://h2851990.stratoserver.net:5432/confluent-db\",\r\n\t\t\"connection.user\": \"postgres\",\r\n\t\t\"connection.password\": \"Co#20#PDat\",\r\n\t\t\"table.whitelist\": \"commerce\",\r\n\t\t\"dialect.name\": \"PostgreSqlDatabaseDialect\",\r\n\t\t\"mode\": \"incrementing\",\r\n\t\t\"incrementing.column.name\": \"id\",\r\n\t\t\"validate.non.null\": \"false\",\r\n\t\t\"topic.prefix\": \"pgsql_\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{cp-port-connect}}",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ksqlDB",
+			"item": [
+				{
+					"name": "Show Functions Command",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ksql\": \"SHOW FUNCTIONS;\",\r\n  \"streamsProperties\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{ksqldb-port}}/ksql",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{ksqldb-port}}",
+							"path": [
+								"ksql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Streams Command",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ksql\": \"LIST STREAMS;\",\r\n  \"streamsProperties\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{ksqldb-port}}/ksql",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{ksqldb-port}}",
+							"path": [
+								"ksql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Table",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ksql\": \"CREATE TABLE USERS (USERID VARCHAR PRIMARY KEY, REGISTERTIME BIGINT, GENDER VARCHAR, REGIONID VARCHAR) WITH (KAFKA_TOPIC='users', VALUE_FORMAT='JSON');\",\r\n  \"streamsProperties\": {\r\n    \"ksql.streams.auto.offset.reset\": \"earliest\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{ksqldb-port}}/ksql",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{ksqldb-port}}",
+							"path": [
+								"ksql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Table",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.ksql.v1+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ksql\": \"select * from USERS EMIT CHANGES;\",\r\n  \"streamsProperties\": {\r\n    \"ksql.streams.auto.offset.reset\": \"earliest\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cp-protocol}}://{{cp-host}}:{{ksqldb-port}}/query",
+							"protocol": "{{cp-protocol}}",
+							"host": [
+								"{{cp-host}}"
+							],
+							"port": "{{ksqldb-port}}",
+							"path": [
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "cp-host",
+			"value": "localhost"
+		},
+		{
+			"key": "cp-port-v2",
+			"value": "8082"
+		},
+		{
+			"key": "cp-protocol",
+			"value": "http"
+		},
+		{
+			"key": "cp-port-v3",
+			"value": "8090"
+		},
+		{
+			"key": "cp-port-sr",
+			"value": "8081"
+		},
+		{
+			"key": "cp-port-connect",
+			"value": "8083"
+		},
+		{
+			"key": "cp-cluster-id",
+			"value": "<<add-your-cluster-id-here>>"
+		},
+		{
+			"key": "broker-id",
+			"value": "1"
+		},
+		{
+			"key": "cp-topic-name",
+			"value": "demo_topic"
+		},
+		{
+			"key": "connector-name",
+			"value": "file_sink_01"
+		},
+		{
+			"key": "schema-subject",
+			"value": "test-subject"
+		},
+		{
+			"key": "ksqldb-port",
+			"value": "8088"
+		},
+		{
+			"key": "connector-datagen-name",
+			"value": "datagen_users"
+		},
+		{
+			"key": "connector-datagen-topic-name",
+			"value": "users"
+		}
+	]
+}

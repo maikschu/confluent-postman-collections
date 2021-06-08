@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "339ef43d-1afd-4648-bd3a-817afd90c287",
+		"name": "Confluent Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "Metrics API: Cluster Throughput v2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{Cloud-Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{Cloud-API-Key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aggregations\":[{\"metric\":\"io.confluent.kafka.server/sent_bytes\"}],\"filter\":{\"op\":\"AND\",\"filters\":[{\"field\":\"resource.kafka.id\",\"op\":\"EQ\",\"value\":\"lkc-qvz6m\"}]},\"granularity\":\"PT5M\",\"intervals\":[\"2021-06-07T13:38:00+02:00/2021-06-08T13:38:00+02:00\"],\"limit\":1000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/query",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telemetry",
+								"confluent",
+								"cloud"
+							],
+							"path": [
+								"v2",
+								"metrics",
+								"cloud",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics API: Cluster Storage",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{Cloud-Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{Cloud-API-Key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aggregations\":[{\"metric\":\"io.confluent.kafka.server/retained_bytes\"}],\"filter\":{\"op\":\"AND\",\"filters\":[{\"field\":\"resource.kafka.id\",\"op\":\"EQ\",\"value\":\"lkc-qvz6m\"}]},\"granularity\":\"PT5M\",\"intervals\":[\"2021-06-07T13:38:00+02:00/2021-06-08T13:38:00+02:00\"],\"limit\":1000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/query",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telemetry",
+								"confluent",
+								"cloud"
+							],
+							"path": [
+								"v2",
+								"metrics",
+								"cloud",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics API: Topics and Partitions v2 Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{Cloud-Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{Cloud-API-Key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aggregations\":[{\"metric\":\"io.confluent.kafka.server/partition_count\"}],\"filter\":{\"op\":\"AND\",\"filters\":[{\"field\":\"resource.kafka.id\",\"op\":\"EQ\",\"value\":\"lkc-qvz6m\"}]},\"granularity\":\"PT1M\",\"intervals\":[\"2021-06-08T13:36:00+02:00/2021-06-08T13:38:00+02:00\"],\"limit\":1000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/query",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telemetry",
+								"confluent",
+								"cloud"
+							],
+							"path": [
+								"v2",
+								"metrics",
+								"cloud",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics API: Topics and Partitions v2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{Cloud-Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{Cloud-API-Key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aggregations\":[{\"metric\":\"io.confluent.kafka.server/partition_count\"}],\"filter\":{\"op\":\"AND\",\"filters\":[{\"field\":\"resource.kafka.id\",\"op\":\"EQ\",\"value\":\"lkc-qvz6m\"}]},\"granularity\":\"PT1M\",\"intervals\":[\"2021-06-08T13:36:00+02:00/2021-06-08T13:38:00+02:00\"],\"limit\":1000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/query",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telemetry",
+								"confluent",
+								"cloud"
+							],
+							"path": [
+								"v2",
+								"metrics",
+								"cloud",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metrics API: Connector Throughput v2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{Cloud-Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{Cloud-API-Key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"aggregations\": [\r\n        {\r\n            \"metric\": \"io.confluent.kafka.connect/sent_records\"\r\n        }\r\n    ],\r\n    \"filter\": {\r\n        \"op\": \"AND\",\r\n        \"filters\": [\r\n            {\r\n                \"field\": \"resource.connector.id\",\r\n                \"op\": \"EQ\",\r\n                \"value\": \"lcc-6q0m2\"\r\n            }\r\n        ]\r\n    },\r\n    \"granularity\": \"PT5M\",\r\n    \"intervals\": [\r\n        \"2021-06-07T13:32:00+02:00/2021-06-08T13:32:00+02:00\"\r\n    ],\r\n    \"limit\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/query",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telemetry",
+								"confluent",
+								"cloud"
+							],
+							"path": [
+								"v2",
+								"metrics",
+								"cloud",
+								"query"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Environments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/environments",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"environments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Environment by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/environments/{{cc-environment-id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"environments",
+						"{{cc-environment-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/users/{{cc-user-id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"users",
+						"{{cc-user-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/service-accounts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"service-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Account by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/v2/service-accounts/{{cc-service-account-id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"service-accounts",
+						"{{cc-service-account-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Connectors by Environment ID and Cluster ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.confluent.cloud/connect/v1/environments/{{cc-environment-id}}/clusters/{{cc-cluster-id}}/connectors",
+					"protocol": "https",
+					"host": [
+						"api",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"connect",
+						"v1",
+						"environments",
+						"{{cc-environment-id}}",
+						"clusters",
+						"{{cc-cluster-id}}",
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Metrics Resources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.telemetry.confluent.cloud/v2/metrics/cloud/descriptors/resources",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telemetry",
+						"confluent",
+						"cloud"
+					],
+					"path": [
+						"v2",
+						"metrics",
+						"cloud",
+						"descriptors",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{cloud-secret}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{cloud-api-key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "cloud-api-key",
+			"value": "<<add-your-cloud-api-key-here>>"
+		},
+		{
+			"key": "cloud-secret",
+			"value": "<<add-your-cloud-secret-here>>"
+		},
+		{
+			"key": "cc-environment-id",
+			"value": "<<add-a-cloud-environment-here>>"
+		},
+		{
+			"key": "cc-cluster-id",
+			"value": "<<add-a-cluster-id-here>>"
+		},
+		{
+			"key": "cc-user-id",
+			"value": "<<add-a-user-id-here>>"
+		},
+		{
+			"key": "cc-service-account-id",
+			"value": "<<add-a-service-account-id-here>>"
+		}
+	]
+}
