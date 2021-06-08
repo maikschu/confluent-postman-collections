@@ -1679,34 +1679,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Add JDBC Connector",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Postgresql\",\r\n    \"config\": {\r\n        \"connector.class\": \"io.confluent.connect.jdbc.JdbcSourceConnector\",\r\n        \"tasks.max\": \"1\",\r\n\t\t\"errors.log.enable\": \"true\",\r\n\t\t\"connection.url\": \"jdbc:postgresql://h2851990.stratoserver.net:5432/confluent-db\",\r\n\t\t\"connection.user\": \"postgres\",\r\n\t\t\"connection.password\": \"Co#20#PDat\",\r\n\t\t\"table.whitelist\": \"commerce\",\r\n\t\t\"dialect.name\": \"PostgreSqlDatabaseDialect\",\r\n\t\t\"mode\": \"incrementing\",\r\n\t\t\"incrementing.column.name\": \"id\",\r\n\t\t\"validate.non.null\": \"false\",\r\n\t\t\"topic.prefix\": \"pgsql_\"\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{cp-protocol}}://{{cp-host}}:{{cp-port-connect}}/connectors",
-							"protocol": "{{cp-protocol}}",
-							"host": [
-								"{{cp-host}}"
-							],
-							"port": "{{cp-port-connect}}",
-							"path": [
-								"connectors"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
